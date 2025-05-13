@@ -7,6 +7,7 @@ import TaskCreateForm from "./TaskCreateForm";
 import CategoryCreateForm from "./CategoryCreateForm";
 import Completed from "./Completed";
 import Task from "./Task";
+import Sidebar from "../components/Sidebar";
 
 export default function AppRoutes() {
   return (
@@ -20,6 +21,7 @@ export default function AppRoutes() {
         <Route path="/inactive" element={<Completed />} />
         <Route path="*" element={<Error />} />
       </Routes>
+      <Sidebar/>
       <Footer />
     </BrowserRouter>
   );

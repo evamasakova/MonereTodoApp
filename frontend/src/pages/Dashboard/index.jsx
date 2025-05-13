@@ -65,6 +65,7 @@ export default function Dashboard() {
       <Link to={`/inactive`}>
         <button>Completed</button>
       </Link>
+      
     </>
   );
 }
