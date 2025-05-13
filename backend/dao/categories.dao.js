@@ -14,7 +14,7 @@ class CategoryDAO {
     try {
       return await Category.find().select("-__v");
     } catch (error) {
-      throw new Error(error);
+    console.log(error)
     }
   }
   /**
@@ -32,7 +32,7 @@ class CategoryDAO {
       });
       return await foo.save();
     } catch (error) {
-      throw new Error(error);
+    console.log(error)
     }
   }
   /**
@@ -45,7 +45,7 @@ class CategoryDAO {
     try {
       return await Category.findById(id).select("-__v");
     } catch (error) {
-      throw new Error(error);
+    console.log(error)
     }
   }
   /**
@@ -62,7 +62,7 @@ class CategoryDAO {
       });
       return categoryMap;
     } catch (error) {
-      throw new Error(error);
+    console.log(error)
     }
   }
 }

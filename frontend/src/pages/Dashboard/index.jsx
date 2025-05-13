@@ -53,18 +53,11 @@ export default function Dashboard() {
       {tasks.map((task, index) => (
         <Cell key={index} {...task} onDeactivate={() => handleDeactivate(task._id)} />
       ))}
-      <Link to={`/create-task`}>
-        <button>Create Task</button>
-      </Link>
+     
       <Link to={`/create-category`}>
         <button>Create Category</button>
       </Link>
-      <Link to={`/`}>
-        <button>Active</button>
-      </Link>
-      <Link to={`/inactive`}>
-        <button>Completed</button>
-      </Link>
+      
       
     </>
   );

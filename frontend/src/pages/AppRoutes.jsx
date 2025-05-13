@@ -15,14 +15,16 @@ export default function AppRoutes() {
       <Header />
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/create-task" element={<TaskCreateForm />} />
+
         <Route path="/create-category" element={<CategoryCreateForm />} />
         <Route path="/task/:id" element={<Task />} />
+        <Route path="/create-task" element={<TaskCreateForm />} />
         <Route path="/inactive" element={<Completed />} />
         <Route path="*" element={<Error />} />
       </Routes>
-      <Sidebar/>
-      <Footer />
+        <Sidebar/>
+      <Footer/>
+    
     </BrowserRouter>
   );
 }

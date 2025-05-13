@@ -24,7 +24,7 @@ class TaskDAO {
     try {
       return await Task.find().populate("categoryID").select("-__v");
     } catch (error) {
-      throw new Error(error);
+    console.log(error)
     }
   }
   /**
@@ -36,7 +36,7 @@ class TaskDAO {
     try {
       return await Task.find({ active: false }).populate("categoryID").select("-__v");
     } catch (error) {
-      throw new Error(error);
+    console.log(error)
     }
   }
   /**
@@ -49,7 +49,7 @@ class TaskDAO {
     try {
       return await Task.find({ active: true }).populate("categoryID").select("-__v");
     } catch (error) {
-      throw new Error(error);
+    console.log(error)
     }
 
   }
@@ -72,6 +72,7 @@ async createTask(data) {
 
     return await foo.save();
   } catch (error) {
+    console.log(error)
   }
 }
 /**
@@ -84,7 +85,7 @@ async createTask(data) {
     try {
       return await Task.findById(id).populate("categoryID").select("-__v");
     } catch (error) {
-      throw new Error(error);
+    console.log(error)
     }
   }
 /**
@@ -101,7 +102,7 @@ async createTask(data) {
         { new: true }
       );
     } catch (error) {
-      throw new Error(error);
+    console.log(error)
     }
   }
 /**
@@ -114,7 +115,7 @@ async createTask(data) {
     try {
       return await Task.find({ categoryID: id });
     } catch (error) {
-      throw new Error(error);
+    console.log(error)
     }
   }
 }
