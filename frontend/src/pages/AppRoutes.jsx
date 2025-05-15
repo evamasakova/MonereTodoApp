@@ -12,19 +12,22 @@ import Sidebar from "../components/Sidebar";
 export default function AppRoutes() {
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
+      <div className="min-h-screen flex flex-col">
+        <main className="flex-grow">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
 
-        <Route path="/create-category" element={<CategoryCreateForm />} />
-        <Route path="/task/:id" element={<Task />} />
-        <Route path="/create-task" element={<TaskCreateForm />} />
-        <Route path="/inactive" element={<Completed />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
-        <Sidebar/>
-      <Footer/>
-    
+            <Route path="/create-category" element={<CategoryCreateForm />} />
+            <Route path="/task/:id" element={<Task />} />
+            <Route path="/create-task" element={<TaskCreateForm />} />
+            <Route path="/inactive" element={<Completed />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
+          <Sidebar />
+        </main>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }

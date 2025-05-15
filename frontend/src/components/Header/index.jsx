@@ -1,25 +1,17 @@
 import "./header.css";
+import { Link } from "react-router-dom";
+import "./header.css"
 export default function Header() {
   return (
-    <>
-      <header class="bg-white">
-        <nav
-          class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
-          aria-label="Global"
-        >
-          <div class="flex lg:flex-1">
-            <h1 class="-m-1.5 p-1.5">
-              Monere
-            </h1>
-          </div>
-
-          <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <h2 class="">
-              Your Todo List
-            </h2>
-          </div>
-        </nav>
-      </header>
-    </>
+    <header className="w-full bg-transparent px-4 py-4">
+      <div className="flex justify-between w-full">
+        <Link to={"/"}>
+          <h1 className=" text-lg font-bold text-black sm:text-xl md:text-3xl lg:text-4xl ">Monēre</h1>
+        </Link>
+        <p className="text-lg text-black sm:text-l md:text-2xl">
+          Your Todo List
+        </p>
+      </div>
+    </header>
   );
 }
