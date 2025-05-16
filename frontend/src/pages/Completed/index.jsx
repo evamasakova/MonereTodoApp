@@ -14,13 +14,13 @@ export default function Dashboard() {
     if (data.status === 200) {
       setTasks(data.payload);
       setLoaded(true);
-      console.log(data.payload);
     }
   };
 
   useEffect(() => {
     load();
   }, []);
+
 
   if (isLoaded === null) {
     return (

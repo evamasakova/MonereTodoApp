@@ -85,7 +85,9 @@ export const checkOff = async (id) => {
     },
     method: "PUT",
   });
+ 
   const data = await req.json();
+  
   return {
     status: req.status,
     payload: data.payload,

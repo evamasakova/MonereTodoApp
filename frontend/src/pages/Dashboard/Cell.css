@@ -2,20 +2,5 @@
     width: 10px;
     height: 10px;
     border-radius: 100%;
-    display: table;
-    float: left;
-    margin-top: 0.42em;
-}
-
-.dashboard-cell-text {
-    margin-left: 1em;
-}
-.dashboard-cell-checkbox{
-    width: 10px;
-    height: 10px;
-    display: table;
-    float:right;
-    margin-top: -1em;
-    background-color: black;
-    cursor: pointer;
+ 
 }

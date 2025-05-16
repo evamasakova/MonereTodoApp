@@ -2,9 +2,11 @@
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 
-  color-scheme:light;
+  color-scheme: light;
   color: #000000de;
-  background-image: url("../public/background_image.jpg");
+  background-image: url("/background_image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   font-synthesis: none;
 
   text-rendering: optimizeLegibility;
@@ -26,4 +28,3 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
-

@@ -49,16 +49,15 @@ export default function Dashboard() {
 
   return (
     <>
-      <p>Dashboard</p>
-      {tasks.map((task, index) => (
-        <Cell key={index} {...task} onDeactivate={() => handleDeactivate(task._id)} />
-      ))}
-     
-      <Link to={`/create-category`}>
-        <button>Create Category</button>
-      </Link>
-      
-      
+      <div className="mt-10">
+        {tasks.map((task, index) => (
+          <Cell
+            key={index}
+            {...task}
+            onDeactivate={() => handleDeactivate(task._id)}
+          />
+        ))}
+      </div>
     </>
   );
 }
