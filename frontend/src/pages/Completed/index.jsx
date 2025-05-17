@@ -1,8 +1,8 @@
-import Cell from "../Dashboard/Cell";
-import { Link } from "react-router-dom";
+import Cell from "../../components/Cell/Cell";
 import { useEffect, useState } from "react";
-import {  getAllInactiveTasks } from "../../models/Tasks";
-
+import { getAllInactiveTasks } from "../../models/Tasks";
+import InfoCard from "../../components/InfoCard";
+import LoadCard from "../../components/LoadCard";
 export default function Dashboard() {
   const [tasks, setTasks] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
@@ -21,41 +21,21 @@ export default function Dashboard() {
     load();
   }, []);
 
-
   if (isLoaded === null) {
-    return (
-      <>
-        <p>Tasks not found, please create your first task</p>
-      </>
-    );
+    return <InfoCard />;
   }
 
   if (!isLoaded) {
     return (
-      <>
-        <p>Tasks are loading...</p>
-      </>
+     <LoadCard/>
     );
   }
 
   return (
     <>
-      <p>Dashboard</p>
       {tasks.map((task, index) => (
         <Cell key={index} {...task} />
       ))}
-      <Link to={`/create-task`}>
-        <button>Create Task</button>
-      </Link>
-      <Link to={`/create-category`}>
-        <button>Create Category</button>
-      </Link>
-      <Link to={`/`}>
-        <button>Active</button>
-      </Link>
-      <Link to={`/inactive`}>
-        <button>Completed</button>
-      </Link>
     </>
   );
 }

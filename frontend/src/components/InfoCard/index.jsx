@@ -1,0 +1,21 @@
+import { Link } from "react-router-dom";
+
+export default function InfoCard() {
+  return (
+    <>
+      <div className="flex items-center  justify-center bg-transparent">
+        <div className="bg-white border  border-gray-300 rounded-xl shadow-md p-6 w-80 text-center">
+          <h2 className="text-xl font-semibold text-gray-800 mb-2">
+            Info Card
+          </h2>
+
+          <p className="text-gray-600 text-sm">
+            There are no registered tasks in this category. If you wish you may
+            create a Task by clicking the "+" button. Or just by clicking
+            <Link to="/create-task" className="text-indigo-500"> here</Link>
+          </p>
+        </div>
+      </div>
+    </>
+  );
+}

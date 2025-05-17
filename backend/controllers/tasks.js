@@ -84,14 +84,17 @@ exports.checkOff = async (req, res, next) => {
 exports.getAllInactiveTasks = async (req, res, next) => {
   try {
     const tasks = await new TaskDAO().getAllInactiveTasks();
-        console.log(tasks);
-    
+    console.log(tasks);
+
     if (TaskUtil.validateIfTasksEmpty(tasks)) {
       return res.status(200).send({
         msg: "Inactive tasks found!",
         payload: tasks,
       });
     }
+    return res.status(404).send({
+      msg: "Tasks empty",
+    });
   } catch (error) {
     res.status(404).send({ msg: "Inactive tasks not found" });
   }
@@ -105,6 +108,9 @@ exports.getAllActiveTasks = async (req, res, next) => {
         payload: tasks,
       });
     }
+    return res.status(404).send({
+      msg: "Tasks empty",
+    });
   } catch (error) {
     res.status(404).send({ msg: "Active tasks not found" });
   }
@@ -123,8 +129,13 @@ exports.getTasksByCategoryID = async (req, res, next) => {
     });
   }
   const data = await new TaskDAO().getTasksByCategory(categoryID);
-  return res.status(200).send({
-    msg: "Tasks filtered!",
-    payload: data,
+  if (TaskUtil.validateIfTasksEmpty(data)) {
+    return res.status(200).send({
+      msg: "Tasks filtered!",
+      payload: data,
+    });
+  }
+  return res.status(404).send({
+    msg: "Tasks empty",
   });
 };

@@ -19,7 +19,7 @@ export default function Footer() {
 
           {/* Plus Button */}
           <Link to="/create-task">
-            <button className="font-bold absolute -top-9.5 left-1/2 -translate-x-1/2 bg-indigo-950 shadow-lg/90 text-white rounded-full w-16 h-16 flex items-center justify-center shadow-xl text-3xl hover:bg-purple-700 transition">
+            <button style={{paddingBottom: 4}} className=" cursor-pointer font-bold absolute -top-9.5 left-1/2 -translate-x-1/2 bg-indigo-950 shadow-lg/90 text-white rounded-full w-16 h-16 flex items-center justify-center shadow-xl text-3xl hover:bg-purple-700 transition">
               +
             </button>
           </Link>

@@ -7,9 +7,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 mongoose
-  .connect(
-    "mongodb+srv://admin:adminadmin@cluster0.qouone4.mongodb.net/mytestapp?retryWrites=true&w=majority&appName=Cluster0"
-  )
+  .connect(process.env.MONGODBCONNECTIONSTRING)
   .then(() => console.log("Database connected"))
   .catch((err) => console.log(err));
 
@@ -19,11 +17,13 @@ const cors = require("cors"); // Import CORS middleware
 
 const app = express();
 
-app.use(cors({
-  origin: "http://localhost:5173", // Allow requests from this origin
-  methods: ["GET", "POST", "PUT"], // Allow specific HTTP methods
-  credentials: true // Allow cookies and credentials if needed
-}));
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Allow requests from this origin
+    methods: ["GET", "POST", "PUT"], // Allow specific HTTP methods
+    credentials: true, // Allow cookies and credentials if needed
+  })
+);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

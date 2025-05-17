@@ -33,12 +33,27 @@ export default function TaskCreateForm() {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log(formData);
   };
 
   const handlePost = (e) => {
     e.preventDefault();
-    postForm();
+    if (checkInputs()) return postForm();
+  };
+
+  const checkInputs = () => {
+    if (!formData.name) {
+      setInfo("Name is required!");
+      return false;
+    }
+    if (!formData.categoryID) {
+      setInfo("Category is required!");
+      return false;
+    }
+    if (!formData.date) {
+      setInfo("Date is required!");
+      return false;
+    }
+    return true;
   };
 
   const redirectToSuccessPage = () => {
@@ -72,7 +87,7 @@ export default function TaskCreateForm() {
           name="significance"
           required
           onChange={handleChange}
-          className="border border-black rounded-md px-3 py-2 hover:shadow-xs shadow-indigo-200 transition"
+          className="cursor-pointer border border-black rounded-md px-3 py-2 hover:shadow-xs shadow-indigo-200 transition"
         >
           <option value="low">Low</option>
           <option value="medium">Medium</option>
@@ -84,15 +99,18 @@ export default function TaskCreateForm() {
           name="categoryID"
           required
           onChange={handleChange}
-          className="border border-black rounded-md px-3 py-2 hover:shadow-xs shadow-indigo-200 transition"
+          className="cursor-pointer border border-black rounded-md px-3 py-2 hover:shadow-xs shadow-indigo-200 transition"
         >
+          <option value="" disabled selected>
+            Select a category
+          </option>
           {categories.map((category) => (
             <option key={category._id} value={category._id}>
               {category.name}
             </option>
           ))}
         </select>
-          <h3 className="text-md font-bold">Due Date</h3>
+        <h3 className="text-md font-bold">Due Date</h3>
 
         <input
           type="date"
@@ -107,13 +125,13 @@ export default function TaskCreateForm() {
 
       <div className="mt-6 flex justify-between">
         <Link to="/">
-          <button className="bg-blue-100 text-black px-4 py-2 rounded-md shadow-md hover:bg-indigo-300 transition">
+          <button className="cursor-pointer bg-blue-100 text-black px-4 py-2 rounded-md shadow-md hover:bg-indigo-300 transition">
             Close
           </button>
         </Link>
         <button
           onClick={handlePost}
-          className="bg-indigo-300 text-black px-4 py-2 rounded-md shadow-md hover:bg-indigo-200 transition"
+          className="cursor-pointer bg-indigo-300 text-black px-4 py-2 rounded-md shadow-md hover:bg-indigo-200 transition"
         >
           Create Task
         </button>

@@ -161,7 +161,9 @@ class TaskDAO {
    */
   async getTasksByCategory(id) {
     try {
-      return await Task.find({ categoryID: id });
+      return await Task.find({ categoryID: id })
+        .populate("categoryID")
+        .select("-__v");
     } catch (error) {
       console.log(error);
     }

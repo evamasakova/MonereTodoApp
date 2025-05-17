@@ -38,6 +38,7 @@ export const getAllActiveTasks = async () => {
     },
     method: "GET",
   });
+  console.log(req.status);
   const data = await req.json();
   return {
     status: req.status,
@@ -46,14 +47,17 @@ export const getAllActiveTasks = async () => {
   };
 };
 export const createTask = async (formData) => {
-  const req = await fetch(`http://localhost:${port}/v${apiv}/tasks/create-task`, {
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    method: "POST",
-    body: JSON.stringify(formData),
-  });
+  const req = await fetch(
+    `http://localhost:${port}/v${apiv}/tasks/create-task`,
+    {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(formData),
+    }
+  );
   const data = await req.json();
   return {
     status: req.status,
@@ -78,16 +82,19 @@ export const getTaskById = async (id) => {
   };
 };
 export const checkOff = async (id) => {
-  const req = await fetch(`http://localhost:${port}/v${apiv}/tasks/deactivate/${id}`, {
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    method: "PUT",
-  });
- 
+  const req = await fetch(
+    `http://localhost:${port}/v${apiv}/tasks/deactivate/${id}`,
+    {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "PUT",
+    }
+  );
+
   const data = await req.json();
-  
+
   return {
     status: req.status,
     payload: data.payload,
@@ -95,7 +102,8 @@ export const checkOff = async (id) => {
   };
 };
 export const getTasksByCategoryID = async (categoryId) => {
-  const req = await fetch(`http://localhost:${port}/v${apiv}/tasks/category/${categoryId}`,
+  const req = await fetch(
+    `http://localhost:${port}/v${apiv}/tasks/category/${categoryId}`,
     {
       headers: {
         Accept: "application/json",
