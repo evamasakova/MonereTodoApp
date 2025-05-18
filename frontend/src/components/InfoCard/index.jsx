@@ -10,9 +10,13 @@ export default function InfoCard() {
           </h2>
 
           <p className="text-gray-600 text-sm">
-            There are no registered tasks in this category. If you wish you may
-            create a Task by clicking the "+" button. Or just by clicking
-            <Link to="/create-task" className="text-indigo-500"> here</Link>
+            There are no registered tasks here. If you wish you may create a
+            Task by clicking the "+" button. Or just by clicking
+            <Link to="/create-task" className="text-indigo-500">
+              {" "}
+              here.
+            </Link>{" "}
+            <br />Please make sure you have at least one category already created.
           </p>
         </div>
       </div>

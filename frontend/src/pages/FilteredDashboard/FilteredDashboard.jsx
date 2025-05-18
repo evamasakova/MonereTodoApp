@@ -38,7 +38,7 @@ export default function FilteredDashboard() {
   const handleDeactivate = async (id) => {
     const response = await checkOff(id);
     if (response.status === 200) {
-      setTasks(tasks.filter((task) => task._id !== id));
+      await load();
     } else {
       console.error(response.msg);
     }

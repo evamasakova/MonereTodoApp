@@ -27,12 +27,16 @@ export default function Cell(props) {
           >
             <IoIosInformationCircleOutline size={20} />
           </button>
-          <button
-            onClick={props.onDeactivate}
-            className="cursor-pointer text-gray-700 hover:text-green-500 transition"
-          >
-            <CiCircleCheck size={20} />
-          </button>
+          {props.active ? (
+            <button
+              onClick={props.onDeactivate}
+              className="cursor-pointer text-gray-700 hover:text-green-500 transition"
+            >
+              <CiCircleCheck size={20} />
+            </button>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
 

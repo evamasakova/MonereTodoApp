@@ -38,7 +38,6 @@ export const getAllActiveTasks = async () => {
     },
     method: "GET",
   });
-  console.log(req.status);
   const data = await req.json();
   return {
     status: req.status,

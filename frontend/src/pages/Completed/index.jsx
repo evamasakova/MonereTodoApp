@@ -9,7 +9,6 @@ export default function Dashboard() {
 
   const load = async () => {
     const data = await getAllInactiveTasks();
-    console.log(data);
     if (data.status === 500 || data.status === 404) return setLoaded(null);
     if (data.status === 200) {
       setTasks(data.payload);
